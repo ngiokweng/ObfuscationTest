@@ -1,0 +1,15 @@
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/intrinsics_gen.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/omp_gen.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/acc_gen.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/ARMTargetParserTableGen.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/AArch64TargetParserTableGen.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/RISCVTargetParserTableGen.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/libObfuscation.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/install-libObfuscation.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/install-libObfuscation-stripped.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/edit_cache.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/rebuild_cache.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/list_install_components.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/install.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/install/local.dir
+/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles/install/strip.dir

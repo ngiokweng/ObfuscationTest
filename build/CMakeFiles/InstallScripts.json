@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/jason/Desktop/llvm_test/Obfuscation/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
