@@ -15,7 +15,7 @@ using namespace Ng1ok;
 
 PreservedAnalyses FlatteningPass::run(llvm::Function &F, llvm::FunctionAnalysisManager &)
 {
-    if (toObfuscate(false, &F, "fla"))
+    if (toObfuscate(true, &F, "fla"))
     {
         if (flattening(F))
         {
@@ -27,8 +27,9 @@ PreservedAnalyses FlatteningPass::run(llvm::Function &F, llvm::FunctionAnalysisM
 
 bool FlatteningPass::flattening(llvm::Function &F)
 {
-    vector<BasicBlock *> origBB;
-    BasicBlock *entryBB, *loopEntry, *loopEnd, *defaultCaseBB, *succBB1, *succBB2;
+    vector<BasicBlock *> origBB, removeFromOrigBB;
+    BasicBlock *entryBB = &F.getEntryBlock();
+    BasicBlock *loopEntry, *loopEnd, *defaultCaseBB, *succBB1, *succBB2;
     LLVMContext &ctx = F.getContext();
     int randNumCase = 0;
     IRBuilder<> builder(ctx);
@@ -42,12 +43,6 @@ bool FlatteningPass::flattening(llvm::Function &F)
     for (BasicBlock &B : F)
     {
         origBB.emplace_back(&B);
-
-        // 遇到invoke指令時, 直接返回false
-        if (isa<InvokeInst>(B.getTerminator()))
-        {
-            return false;
-        }
     }
 
     // 基本塊數量 <= 1 時不用處理
@@ -58,22 +53,41 @@ bool FlatteningPass::flattening(llvm::Function &F)
 
     LLVM_DEBUG(dbgs() << "Func: " << F.getName() << "\n");
 
+    // 處理Invoke指令的情況
+    // --------------------
+    for (BasicBlock *BB : origBB)
+    {
+        // 遍歷origBB所有invoke指令, 獲取其Unwind塊, push到removeFromOrigBB
+        if (InvokeInst *invokeInst = dyn_cast<InvokeInst>(BB->getTerminator()))
+        {
+            // removeFromOrigBB.emplace_back(invokeInst->getUnwindDest());
+        }
+    }
+
+    // 將removeFromOrigBB中的BB從origBB中移除
+    for (BasicBlock *BB : removeFromOrigBB)
+    {
+        auto r = std::find(origBB.begin(), origBB.end(), BB);
+        if (r != origBB.end())
+        {
+            origBB.erase(r);
+        }
+    }
+
     // 去掉EntryBlock(EB)
     origBB.erase(origBB.begin());
 
-    entryBB = &F.getEntryBlock();
-
-    // 判斷EB最後一條指令是否條件跳轉, 是的話要特殊處理
+    // 判斷EB最後一條指令是否條件跳轉 / invoke指令, 是的話要特殊處理
     // -------------------------------------------------------
-    if (isa<BranchInst>(entryBB->getTerminator()))
+    if (isa<BranchInst>(entryBB->getTerminator()) || isa<InvokeInst>(entryBB->getTerminator()))
     {
 
-        BranchInst *br = cast<BranchInst>(entryBB->getTerminator());
-        if (br->isConditional())
+        BranchInst *br = dyn_cast<BranchInst>(entryBB->getTerminator());
+        if ((br && br->isConditional()) || !br)
         {
-
             // 分割點設為entryBB最後一條指令(br), 因為br前一條指令未必是cmp指令
             // ( 之後的fixStack()會修復entryBB->getTerminator()前面的逃逸變量 )
+            // (invoke指令同理)
             Instruction *splitPointInst = entryBB->getTerminator();
 
             // 分割entryBB, splitPointInst之前的指令留在原BB, 其餘被分到newBB
@@ -135,9 +149,14 @@ bool FlatteningPass::flattening(llvm::Function &F)
     // 根據BB的後繼, 可分成3種情況來處理
     for (BasicBlock *BB : origBB)
     {
-
         // retn BB
         if (BB->getTerminator()->getNumSuccessors() == 0)
+        {
+            continue;
+        }
+
+        // 將InvokeInst結尾的BB剔除在平坦流外
+        if (isa<InvokeInst>(BB->getTerminator()))
         {
             continue;
         }
@@ -166,6 +185,11 @@ bool FlatteningPass::flattening(llvm::Function &F)
                                           /*False*/ swInst->findCaseDest(succBB2));
 
             builder.CreateStore(selVal, swVarPtr);
+        }
+        else
+        {
+            // Terminator是SwitchInst的情況, 直接continue即可 (https://bbs.kanxue.com/thread-274778.htm)
+            continue;
         }
 
         builder.CreateBr(loopEnd);
