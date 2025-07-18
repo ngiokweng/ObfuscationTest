@@ -60,7 +60,7 @@ bool FlatteningPass::flattening(llvm::Function &F)
         // 遍歷origBB所有invoke指令, 獲取其Unwind塊, push到removeFromOrigBB
         if (InvokeInst *invokeInst = dyn_cast<InvokeInst>(BB->getTerminator()))
         {
-            // removeFromOrigBB.emplace_back(invokeInst->getUnwindDest());
+            removeFromOrigBB.emplace_back(invokeInst->getUnwindDest());
         }
     }
 
