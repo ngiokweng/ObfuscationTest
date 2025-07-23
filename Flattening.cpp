@@ -13,16 +13,18 @@ using namespace Ng1ok;
 
 #define DEBUG_TYPE "fla"
 
-PreservedAnalyses FlatteningPass::run(llvm::Function &F, llvm::FunctionAnalysisManager &)
+PreservedAnalyses FlatteningPass::run(llvm::Module &M, llvm::ModuleAnalysisManager &AM)
 {
-    if (toObfuscate(true, &F, "fla"))
+    bool changed = false;
+    for (Function &F : M)
     {
-        if (flattening(F))
+
+        if (toObfuscate(false, &F, "fla"))
         {
-            return llvm::PreservedAnalyses::none();
+            changed |= flattening(F);
         }
     }
-    return llvm::PreservedAnalyses::all();
+    return changed ? llvm::PreservedAnalyses::none() : llvm::PreservedAnalyses::all();
 }
 
 bool FlatteningPass::flattening(llvm::Function &F)
@@ -199,32 +201,4 @@ bool FlatteningPass::flattening(llvm::Function &F)
     fixStack(F);
 
     return true;
-}
-
-//-----------------------------------------------------------------------------
-// New PM Registration
-//-----------------------------------------------------------------------------
-llvm::PassPluginLibraryInfo getFlatteningPassPluginInfo()
-{
-    return {LLVM_PLUGIN_API_VERSION, "Flattening", LLVM_VERSION_STRING,
-            [](PassBuilder &PB)
-            {
-                PB.registerPipelineParsingCallback(
-                    [](StringRef Name, FunctionPassManager &FPM,
-                       ArrayRef<PassBuilder::PipelineElement>)
-                    {
-                        if (Name == "fla")
-                        {
-                            FPM.addPass(FlatteningPass());
-                            return true;
-                        }
-                        return false;
-                    });
-            }};
-}
-
-extern "C" LLVM_ATTRIBUTE_WEAK ::llvm::PassPluginLibraryInfo
-llvmGetPassPluginInfo()
-{
-    return getFlatteningPassPluginInfo();
 }

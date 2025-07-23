@@ -212,6 +212,7 @@ string IPRExchange(string end) {//IP逆置换实现
 	return result;
 }
 //4：加密函数实现
+__attribute((__annotate__(("fla-plus"))))
 string encrypt(string plain, string key) {
 	string cipher = "";
 	string temp = IPExchange(plain);//对输入明文进行初始置换IP

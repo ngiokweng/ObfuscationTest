@@ -302,6 +302,54 @@ Flattening.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/Flattening.cpp.s
 .PHONY : Flattening.cpp.s
 
+FlatteningPlus.o: FlatteningPlus.cpp.o
+.PHONY : FlatteningPlus.o
+
+# target to build an object file
+FlatteningPlus.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.o
+.PHONY : FlatteningPlus.cpp.o
+
+FlatteningPlus.i: FlatteningPlus.cpp.i
+.PHONY : FlatteningPlus.i
+
+# target to preprocess a source file
+FlatteningPlus.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.i
+.PHONY : FlatteningPlus.cpp.i
+
+FlatteningPlus.s: FlatteningPlus.cpp.s
+.PHONY : FlatteningPlus.s
+
+# target to generate assembly for a file
+FlatteningPlus.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.s
+.PHONY : FlatteningPlus.cpp.s
+
+PMRegistration.o: PMRegistration.cpp.o
+.PHONY : PMRegistration.o
+
+# target to build an object file
+PMRegistration.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o
+.PHONY : PMRegistration.cpp.o
+
+PMRegistration.i: PMRegistration.cpp.i
+.PHONY : PMRegistration.i
+
+# target to preprocess a source file
+PMRegistration.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/PMRegistration.cpp.i
+.PHONY : PMRegistration.cpp.i
+
+PMRegistration.s: PMRegistration.cpp.s
+.PHONY : PMRegistration.s
+
+# target to generate assembly for a file
+PMRegistration.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/PMRegistration.cpp.s
+.PHONY : PMRegistration.cpp.s
+
 Utils.o: Utils.cpp.o
 .PHONY : Utils.o
 
@@ -350,6 +398,12 @@ help:
 	@echo "... Flattening.o"
 	@echo "... Flattening.i"
 	@echo "... Flattening.s"
+	@echo "... FlatteningPlus.o"
+	@echo "... FlatteningPlus.i"
+	@echo "... FlatteningPlus.s"
+	@echo "... PMRegistration.o"
+	@echo "... PMRegistration.i"
+	@echo "... PMRegistration.s"
 	@echo "... Utils.o"
 	@echo "... Utils.i"
 	@echo "... Utils.s"

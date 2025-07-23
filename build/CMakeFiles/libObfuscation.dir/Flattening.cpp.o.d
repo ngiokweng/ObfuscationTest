@@ -278,6 +278,19 @@ CMakeFiles/libObfuscation.dir/Flattening.cpp.o: \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/GlobalObject.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/GlobalValue.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/OperandTraits.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/Module.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/StringMap.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/StringMapEntry.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/AllocatorBase.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/Comdat.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/DataLayout.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/APInt.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/float128.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/TrailingObjects.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/GlobalAlias.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/GlobalIFunc.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/GlobalVariable.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/ProfileSummary.h \
  /home/jason/Desktop/llvm_test/Obfuscation/Utils.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Passes/PassPlugin.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/DynamicLibrary.h \
@@ -294,9 +307,6 @@ CMakeFiles/libObfuscation.dir/Flattening.cpp.o: \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Analysis/TargetLibraryInfo.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/BitVector.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/InstrTypes.h \
- /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/StringMap.h \
- /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/StringMapEntry.h \
- /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/AllocatorBase.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/FMF.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Pass.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/PassAnalysisSupport.h \
@@ -347,7 +357,6 @@ CMakeFiles/libObfuscation.dir/Flattening.cpp.o: \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/MC/MCInst.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/MC/MCSymbolTableEntry.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/ArrayRecycler.h \
- /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/TrailingObjects.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/CodeGen/MachineInstrBundleIterator.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/MC/LaneBitmask.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/Printable.h \
@@ -370,8 +379,6 @@ CMakeFiles/libObfuscation.dir/Flattening.cpp.o: \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Transforms/IPO/Inliner.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Analysis/InlineAdvisor.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Analysis/InlineCost.h \
- /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/APInt.h \
- /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/float128.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Analysis/InlineModelFeatureMaps.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Analysis/TensorSpec.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Analysis/Utils/ImportedFunctionsInliningStatistics.h \
@@ -392,9 +399,7 @@ CMakeFiles/libObfuscation.dir/Flattening.cpp.o: \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/ConstantFold.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/IRBuilderFolder.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/Operator.h \
- /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/DataLayout.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/FPEnv.h \
- /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/GlobalVariable.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/Instructions.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/CFG.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Transforms/Scalar/LoopPassManager.h \
