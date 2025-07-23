@@ -278,6 +278,30 @@ install-libObfuscation-stripped/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/install-libObfuscation-stripped.dir/build.make CMakeFiles/install-libObfuscation-stripped.dir/build
 .PHONY : install-libObfuscation-stripped/fast
 
+BogusControlFlow.o: BogusControlFlow.cpp.o
+.PHONY : BogusControlFlow.o
+
+# target to build an object file
+BogusControlFlow.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/BogusControlFlow.cpp.o
+.PHONY : BogusControlFlow.cpp.o
+
+BogusControlFlow.i: BogusControlFlow.cpp.i
+.PHONY : BogusControlFlow.i
+
+# target to preprocess a source file
+BogusControlFlow.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/BogusControlFlow.cpp.i
+.PHONY : BogusControlFlow.cpp.i
+
+BogusControlFlow.s: BogusControlFlow.cpp.s
+.PHONY : BogusControlFlow.s
+
+# target to generate assembly for a file
+BogusControlFlow.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/BogusControlFlow.cpp.s
+.PHONY : BogusControlFlow.cpp.s
+
 Flattening.o: Flattening.cpp.o
 .PHONY : Flattening.o
 
@@ -395,6 +419,9 @@ help:
 	@echo "... intrinsics_gen"
 	@echo "... omp_gen"
 	@echo "... libObfuscation"
+	@echo "... BogusControlFlow.o"
+	@echo "... BogusControlFlow.i"
+	@echo "... BogusControlFlow.s"
 	@echo "... Flattening.o"
 	@echo "... Flattening.i"
 	@echo "... Flattening.s"

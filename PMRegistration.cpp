@@ -3,6 +3,7 @@
 
 #include "Flattening.h"
 #include "FlatteningPlus.h"
+#include "BogusControlFlow.h"
 
 using namespace Ng1ok;
 using namespace llvm;
@@ -24,6 +25,11 @@ llvm::PassPluginLibraryInfo getNg1okPassPluginInfo()
                         if (Name == "fla-plus")
                         {
                             MPM.addPass(FlatteningPlusPass());
+                            return true;
+                        }
+                        if (Name == "bcf")
+                        {
+                            MPM.addPass(BogusControlFlow());
                             return true;
                         }
                         return false;

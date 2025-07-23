@@ -54,10 +54,9 @@ int test2(int a)
     return c;
 }
 
-__attribute((__annotate__(("fla"))))
+// __attribute((__annotate__(("fla"))))
 // __attribute((__annotate__(("fla-plus"))))
-int
-controlFlowTest(int x)
+int controlFlowTest(int x)
 {
     int result;
     int condition = x % 3;
@@ -136,7 +135,8 @@ void updateKeys(int visited, int *keyArray, int *domArray, int domArrayLen, int 
     }
 }
 
-__attribute((__annotate__(("fla")))) int test4(int a, int b, int c)
+__attribute((__annotate__(("fla-plus bcf")))) 
+int test4(int a, int b, int c)
 {
     int res = 0;
     if (a + b > c)
@@ -151,7 +151,8 @@ __attribute((__annotate__(("fla")))) int test4(int a, int b, int c)
     return res;
 }
 
-__attribute((__annotate__(("fla-plus")))) int test5(int a, int b, int c)
+// __attribute((__annotate__(("fla-plus")))) 
+int test5(int a, int b, int c)
 {
     int res = 0;
     int i = 0;

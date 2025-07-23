@@ -285,12 +285,12 @@ CMakeFiles/RISCVTargetParserTableGen.dir/clean:
 CMakeFiles/libObfuscation.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=1,2,3,4,5 "Built target libObfuscation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target libObfuscation"
 .PHONY : CMakeFiles/libObfuscation.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/libObfuscation.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/libObfuscation.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles 0
 .PHONY : CMakeFiles/libObfuscation.dir/rule
@@ -302,7 +302,7 @@ libObfuscation: CMakeFiles/libObfuscation.dir/rule
 # codegen rule for target.
 CMakeFiles/libObfuscation.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=1,2,3,4,5 "Finished codegen for target libObfuscation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Finished codegen for target libObfuscation"
 .PHONY : CMakeFiles/libObfuscation.dir/codegen
 
 # clean rule for target.
@@ -322,7 +322,7 @@ CMakeFiles/install-libObfuscation.dir/all: CMakeFiles/libObfuscation.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/install-libObfuscation.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/install-libObfuscation.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles 0
 .PHONY : CMakeFiles/install-libObfuscation.dir/rule
@@ -354,7 +354,7 @@ CMakeFiles/install-libObfuscation-stripped.dir/all: CMakeFiles/libObfuscation.di
 
 # Build rule for subdir invocation for target.
 CMakeFiles/install-libObfuscation-stripped.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/install-libObfuscation-stripped.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles 0
 .PHONY : CMakeFiles/install-libObfuscation-stripped.dir/rule

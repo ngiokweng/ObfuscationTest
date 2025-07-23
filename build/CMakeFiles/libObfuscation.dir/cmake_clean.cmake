@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/libObfuscation.dir/BogusControlFlow.cpp.o"
+  "CMakeFiles/libObfuscation.dir/BogusControlFlow.cpp.o.d"
   "CMakeFiles/libObfuscation.dir/Flattening.cpp.o"
   "CMakeFiles/libObfuscation.dir/Flattening.cpp.o.d"
   "CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.o"

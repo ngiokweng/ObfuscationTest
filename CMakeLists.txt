@@ -20,6 +20,7 @@ include_directories(${LLVM_INCLUDE_DIRS})
 add_llvm_pass_plugin(libObfuscation 
     Flattening.cpp
     FlatteningPlus.cpp
+    BogusControlFlow.cpp
     Utils.cpp
     PMRegistration.cpp
     ) 
