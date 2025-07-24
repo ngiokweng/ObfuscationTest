@@ -22,7 +22,7 @@ PreservedAnalyses BogusControlFlow::run(llvm::Module &M, llvm::ModuleAnalysisMan
     bool changed = false;
     for (Function &F : M)
     {
-        if (toObfuscate(true, &F, "bcf"))
+        if (toObfuscate(false, &F, "bcf"))
         {
             changed |= doBCF(F);
         }
@@ -91,13 +91,12 @@ Value *createBogusCmp(BasicBlock *insertAfter)
 
 bool BogusControlFlow::doBCF(llvm::Function &F)
 {
-    LLVM_DEBUG(dbgs() << "Func: " << F.getName() << " | origBB.size(): " << origBB.size() << "\n");
-    
     std::vector<BasicBlock *> origBB;
     for (BasicBlock &BB : F)
     {
         origBB.push_back(&BB);
     }
+    LLVM_DEBUG(dbgs() << "Func: " << F.getName() << " | origBB.size(): " << origBB.size() << "\n");
 
     bool flag = false;
     for (BasicBlock *BB : origBB)

@@ -61,9 +61,9 @@ $_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_
 @.str.13 = private unnamed_addr constant [21 x i8] c"test5(111,222,333): \00", align 1
 @.str.14 = private unnamed_addr constant [42 x i8] c"basic_string::_M_construct null not valid\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_test.cpp, ptr null }]
-@.str.15 = private unnamed_addr constant [13 x i8] c"fla-plus bcf\00", section "llvm.metadata"
+@.str.15 = private unnamed_addr constant [4 x i8] c"ibr\00", section "llvm.metadata"
 @.str.16 = private unnamed_addr constant [9 x i8] c"test.cpp\00", section "llvm.metadata"
-@llvm.global.annotations = appending global [1 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @_Z5test4iii, ptr @.str.15, ptr @.str.16, i32 139, ptr null }], section "llvm.metadata"
+@llvm.global.annotations = appending global [1 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @_Z5test5iii, ptr @.str.15, ptr @.str.16, i32 155, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: noinline uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" {

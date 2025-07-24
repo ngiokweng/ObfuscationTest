@@ -135,7 +135,7 @@ void updateKeys(int visited, int *keyArray, int *domArray, int domArrayLen, int 
     }
 }
 
-__attribute((__annotate__(("fla-plus bcf")))) 
+// __attribute((__annotate__(("fla-plus bcf")))) 
 int test4(int a, int b, int c)
 {
     int res = 0;
@@ -151,7 +151,7 @@ int test4(int a, int b, int c)
     return res;
 }
 
-// __attribute((__annotate__(("fla-plus")))) 
+__attribute((__annotate__(("ibr")))) 
 int test5(int a, int b, int c)
 {
     int res = 0;

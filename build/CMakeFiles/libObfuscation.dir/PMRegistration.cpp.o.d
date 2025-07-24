@@ -442,4 +442,7 @@ CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: \
  /home/jason/Desktop/llvm_test/Obfuscation/FlatteningPlus.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/Dominators.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/DepthFirstIterator.h \
- /home/jason/Desktop/llvm_test/Obfuscation/BogusControlFlow.h
+ /home/jason/Desktop/llvm_test/Obfuscation/BogusControlFlow.h \
+ /home/jason/Desktop/llvm_test/Obfuscation/IndirectBranch.h \
+ /home/jason/Desktop/llvm_test/Obfuscation/CryptoUtils.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/ManagedStatic.h

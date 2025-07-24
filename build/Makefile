@@ -302,6 +302,30 @@ BogusControlFlow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/BogusControlFlow.cpp.s
 .PHONY : BogusControlFlow.cpp.s
 
+CryptoUtils.o: CryptoUtils.cpp.o
+.PHONY : CryptoUtils.o
+
+# target to build an object file
+CryptoUtils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o
+.PHONY : CryptoUtils.cpp.o
+
+CryptoUtils.i: CryptoUtils.cpp.i
+.PHONY : CryptoUtils.i
+
+# target to preprocess a source file
+CryptoUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.i
+.PHONY : CryptoUtils.cpp.i
+
+CryptoUtils.s: CryptoUtils.cpp.s
+.PHONY : CryptoUtils.s
+
+# target to generate assembly for a file
+CryptoUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.s
+.PHONY : CryptoUtils.cpp.s
+
 Flattening.o: Flattening.cpp.o
 .PHONY : Flattening.o
 
@@ -349,6 +373,30 @@ FlatteningPlus.s: FlatteningPlus.cpp.s
 FlatteningPlus.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.s
 .PHONY : FlatteningPlus.cpp.s
+
+IndirectBranch.o: IndirectBranch.cpp.o
+.PHONY : IndirectBranch.o
+
+# target to build an object file
+IndirectBranch.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.o
+.PHONY : IndirectBranch.cpp.o
+
+IndirectBranch.i: IndirectBranch.cpp.i
+.PHONY : IndirectBranch.i
+
+# target to preprocess a source file
+IndirectBranch.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.i
+.PHONY : IndirectBranch.cpp.i
+
+IndirectBranch.s: IndirectBranch.cpp.s
+.PHONY : IndirectBranch.s
+
+# target to generate assembly for a file
+IndirectBranch.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.s
+.PHONY : IndirectBranch.cpp.s
 
 PMRegistration.o: PMRegistration.cpp.o
 .PHONY : PMRegistration.o
@@ -422,12 +470,18 @@ help:
 	@echo "... BogusControlFlow.o"
 	@echo "... BogusControlFlow.i"
 	@echo "... BogusControlFlow.s"
+	@echo "... CryptoUtils.o"
+	@echo "... CryptoUtils.i"
+	@echo "... CryptoUtils.s"
 	@echo "... Flattening.o"
 	@echo "... Flattening.i"
 	@echo "... Flattening.s"
 	@echo "... FlatteningPlus.o"
 	@echo "... FlatteningPlus.i"
 	@echo "... FlatteningPlus.s"
+	@echo "... IndirectBranch.o"
+	@echo "... IndirectBranch.i"
+	@echo "... IndirectBranch.s"
 	@echo "... PMRegistration.o"
 	@echo "... PMRegistration.i"
 	@echo "... PMRegistration.s"

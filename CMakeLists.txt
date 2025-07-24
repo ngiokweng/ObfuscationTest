@@ -21,6 +21,9 @@ add_llvm_pass_plugin(libObfuscation
     Flattening.cpp
     FlatteningPlus.cpp
     BogusControlFlow.cpp
+    IndirectBranch.cpp
+
     Utils.cpp
+    CryptoUtils.cpp
     PMRegistration.cpp
     ) 

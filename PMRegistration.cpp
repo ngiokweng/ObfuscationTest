@@ -4,6 +4,7 @@
 #include "Flattening.h"
 #include "FlatteningPlus.h"
 #include "BogusControlFlow.h"
+#include "IndirectBranch.h"
 
 using namespace Ng1ok;
 using namespace llvm;
@@ -30,6 +31,11 @@ llvm::PassPluginLibraryInfo getNg1okPassPluginInfo()
                         if (Name == "bcf")
                         {
                             MPM.addPass(BogusControlFlow());
+                            return true;
+                        }
+                        if (Name == "ibr")
+                        {
+                            MPM.addPass(IndirectBranchPass());
                             return true;
                         }
                         return false;
