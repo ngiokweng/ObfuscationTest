@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.o.d"
   "CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.o"
   "CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.o.d"
+  "CMakeFiles/libObfuscation.dir/IndirectCall.cpp.o"
+  "CMakeFiles/libObfuscation.dir/IndirectCall.cpp.o.d"
   "CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o"
   "CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o.d"
   "CMakeFiles/libObfuscation.dir/Utils.cpp.o"

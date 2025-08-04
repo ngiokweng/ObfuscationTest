@@ -24,7 +24,7 @@ llvm::PreservedAnalyses IndirectBranchPass::run(llvm::Module &M, llvm::ModuleAna
     bool changed = false;
     for (Function &F : M)
     {
-        if (toObfuscate(true, &F, "ibr"))
+        if (toObfuscate(false, &F, "ibr"))
         {
             changed |= doIBr(F);
         }

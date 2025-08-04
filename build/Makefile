@@ -398,6 +398,30 @@ IndirectBranch.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.s
 .PHONY : IndirectBranch.cpp.s
 
+IndirectCall.o: IndirectCall.cpp.o
+.PHONY : IndirectCall.o
+
+# target to build an object file
+IndirectCall.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/IndirectCall.cpp.o
+.PHONY : IndirectCall.cpp.o
+
+IndirectCall.i: IndirectCall.cpp.i
+.PHONY : IndirectCall.i
+
+# target to preprocess a source file
+IndirectCall.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/IndirectCall.cpp.i
+.PHONY : IndirectCall.cpp.i
+
+IndirectCall.s: IndirectCall.cpp.s
+.PHONY : IndirectCall.s
+
+# target to generate assembly for a file
+IndirectCall.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/IndirectCall.cpp.s
+.PHONY : IndirectCall.cpp.s
+
 PMRegistration.o: PMRegistration.cpp.o
 .PHONY : PMRegistration.o
 
@@ -482,6 +506,9 @@ help:
 	@echo "... IndirectBranch.o"
 	@echo "... IndirectBranch.i"
 	@echo "... IndirectBranch.s"
+	@echo "... IndirectCall.o"
+	@echo "... IndirectCall.i"
+	@echo "... IndirectCall.s"
 	@echo "... PMRegistration.o"
 	@echo "... PMRegistration.i"
 	@echo "... PMRegistration.s"

@@ -14,3 +14,5 @@
 - [Pluto](https://github.com/bluesadi/Pluto/blob/main/llvm/lib/Transforms/Obfuscation/BogusControlFlow.cpp)
 ### 間接跳轉(ibr)
 - [ollvm17-ibr](https://github.com/DreamSoule/ollvm17/blob/main/llvm-project/llvm/lib/Passes/Obfuscation/IndirectBranch.cpp)
+### 間接函數跳轉(icall)
+- [ollvm17-icall](https://github.com/DreamSoule/ollvm17/blob/main/llvm-project/llvm/lib/Passes/Obfuscation/IndirectCall.cpp)

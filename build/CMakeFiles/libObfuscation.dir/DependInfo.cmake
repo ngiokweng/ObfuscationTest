@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/jason/Desktop/llvm_test/Obfuscation/Flattening.cpp" "CMakeFiles/libObfuscation.dir/Flattening.cpp.o" "gcc" "CMakeFiles/libObfuscation.dir/Flattening.cpp.o.d"
   "/home/jason/Desktop/llvm_test/Obfuscation/FlatteningPlus.cpp" "CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.o" "gcc" "CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.o.d"
   "/home/jason/Desktop/llvm_test/Obfuscation/IndirectBranch.cpp" "CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.o" "gcc" "CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.o.d"
+  "/home/jason/Desktop/llvm_test/Obfuscation/IndirectCall.cpp" "CMakeFiles/libObfuscation.dir/IndirectCall.cpp.o" "gcc" "CMakeFiles/libObfuscation.dir/IndirectCall.cpp.o.d"
   "/home/jason/Desktop/llvm_test/Obfuscation/PMRegistration.cpp" "CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o" "gcc" "CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o.d"
   "/home/jason/Desktop/llvm_test/Obfuscation/Utils.cpp" "CMakeFiles/libObfuscation.dir/Utils.cpp.o" "gcc" "CMakeFiles/libObfuscation.dir/Utils.cpp.o.d"
   )
