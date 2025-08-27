@@ -34,7 +34,7 @@ Function *buildUpdateKeys(Module &M, LLVMContext &C)
     Type *i8 = Type::getInt8Ty(C);
     FunctionType *FT = FunctionType::get(voidTy, {i8, i32Ptr, i32Ptr, i32, i32, i32}, false);
 
-    Function *F = Function::Create(FT, GlobalValue::ExternalLinkage, "updateKeys", &M);
+    Function *F = Function::Create(FT, GlobalValue::PrivateLinkage, "updateKeys", &M);
 
     // 建立基本塊
     BasicBlock *entry = BasicBlock::Create(C, "entry", F);

@@ -55,7 +55,7 @@ int test2(int a)
 }
 
 // __attribute((__annotate__(("fla"))))
-// __attribute((__annotate__(("fla-plus"))))
+__attribute((__annotate__(("fla-plus"))))
 int controlFlowTest(int x)
 {
     int result;
@@ -120,7 +120,7 @@ string test3(string s)
     return temp + s;
 }
 
-// __attribute((__annotate__(("fla-plus"))))
+__attribute((__annotate__(("fla-plus"))))
 void updateKeys(int visited, int *keyArray, int *domArray, int domArrayLen, int randNum)
 {
     if (visited)
@@ -135,7 +135,7 @@ void updateKeys(int visited, int *keyArray, int *domArray, int domArrayLen, int 
     }
 }
 
-// __attribute((__annotate__(("fla-plus bcf")))) 
+__attribute((__annotate__(("fla-plus"))))
 int test4(int a, int b, int c)
 {
     int res = 0;
@@ -151,7 +151,7 @@ int test4(int a, int b, int c)
     return res;
 }
 
-// __attribute((__annotate__(("ibr")))) 
+__attribute((__annotate__(("fla-plus"))))
 int test5(int a, int b, int c)
 {
     int res = 0;
