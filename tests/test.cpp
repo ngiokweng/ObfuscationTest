@@ -228,6 +228,7 @@ void test_str() {
     print_str(b);
     print_str("WTFF");
     print_str("T");
+    fopen("/proc/self/maps", "r");
 }
 
 int main()

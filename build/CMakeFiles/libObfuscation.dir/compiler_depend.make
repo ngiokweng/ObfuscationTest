@@ -2584,7 +2584,7 @@ CMakeFiles/libObfuscation.dir/IndirectCall.cpp.o: /home/jason/Desktop/llvm_test/
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h
 
-CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: /home/jason/Desktop/llvm_test/Obfuscation/PMRegistration.cpp \
+CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o: /home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.cpp \
   /home/jason/Desktop/Downloads/llvm-project/build/include/llvm/CodeGen/GenVT.inc \
   /home/jason/Desktop/Downloads/llvm-project/build/include/llvm/Config/abi-breaking.h \
   /home/jason/Desktop/Downloads/llvm-project/build/include/llvm/Config/llvm-config.h \
@@ -2605,7 +2605,6 @@ CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: /home/jason/Desktop/llvm_tes
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/DenseMap.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/DenseMapInfo.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/DenseSet.h \
-  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/DepthFirstIterator.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/EpochTracker.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/EquivalenceClasses.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/FloatingPointMode.h \
@@ -2699,7 +2698,6 @@ CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: /home/jason/Desktop/llvm_tes
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/DerivedTypes.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/DiagnosticHandler.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/DiagnosticInfo.h \
-  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/Dominators.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/EHPersonalities.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/FMF.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/FPEnv.h \
@@ -2758,7 +2756,6 @@ CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: /home/jason/Desktop/llvm_tes
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/PassSupport.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Passes/OptimizationLevel.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Passes/PassBuilder.h \
-  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Passes/PassPlugin.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/AlignOf.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/Alignment.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/Allocator.h \
@@ -2777,7 +2774,6 @@ CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: /home/jason/Desktop/llvm_tes
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/DataTypes.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/Debug.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/Discriminator.h \
-  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/DynamicLibrary.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/Error.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/ErrorHandling.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/ErrorOr.h \
@@ -2822,13 +2818,9 @@ CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: /home/jason/Desktop/llvm_tes
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Transforms/Utils/LoopSimplify.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Transforms/Utils/LoopUtils.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Transforms/Utils/ValueMapper.h \
-  /home/jason/Desktop/llvm_test/Obfuscation/BogusControlFlow.h \
   /home/jason/Desktop/llvm_test/Obfuscation/CryptoUtils.h \
-  /home/jason/Desktop/llvm_test/Obfuscation/Flattening.h \
-  /home/jason/Desktop/llvm_test/Obfuscation/FlatteningPlus.h \
-  /home/jason/Desktop/llvm_test/Obfuscation/IndirectBranch.h \
-  /home/jason/Desktop/llvm_test/Obfuscation/IndirectCall.h \
-  /home/jason/Desktop/llvm_test/Obfuscation/StringEncrypt.h \
+  /home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.h \
+  /home/jason/Desktop/llvm_test/Obfuscation/Utils.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -3081,7 +3073,7 @@ CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: /home/jason/Desktop/llvm_tes
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h
 
-CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o: /home/jason/Desktop/llvm_test/Obfuscation/StringEncrypt.cpp \
+CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: /home/jason/Desktop/llvm_test/Obfuscation/PMRegistration.cpp \
   /home/jason/Desktop/Downloads/llvm-project/build/include/llvm/CodeGen/GenVT.inc \
   /home/jason/Desktop/Downloads/llvm-project/build/include/llvm/Config/abi-breaking.h \
   /home/jason/Desktop/Downloads/llvm-project/build/include/llvm/Config/llvm-config.h \
@@ -3102,6 +3094,7 @@ CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o: /home/jason/Desktop/llvm_test
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/DenseMap.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/DenseMapInfo.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/DenseSet.h \
+  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/DepthFirstIterator.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/EpochTracker.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/EquivalenceClasses.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/FloatingPointMode.h \
@@ -3195,6 +3188,7 @@ CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o: /home/jason/Desktop/llvm_test
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/DerivedTypes.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/DiagnosticHandler.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/DiagnosticInfo.h \
+  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/Dominators.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/EHPersonalities.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/FMF.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/FPEnv.h \
@@ -3253,6 +3247,7 @@ CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o: /home/jason/Desktop/llvm_test
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/PassSupport.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Passes/OptimizationLevel.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Passes/PassBuilder.h \
+  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Passes/PassPlugin.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/AlignOf.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/Alignment.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/Allocator.h \
@@ -3271,6 +3266,7 @@ CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o: /home/jason/Desktop/llvm_test
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/DataTypes.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/Debug.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/Discriminator.h \
+  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/DynamicLibrary.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/Error.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/ErrorHandling.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/ErrorOr.h \
@@ -3315,9 +3311,13 @@ CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o: /home/jason/Desktop/llvm_test
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Transforms/Utils/LoopSimplify.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Transforms/Utils/LoopUtils.h \
   /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Transforms/Utils/ValueMapper.h \
+  /home/jason/Desktop/llvm_test/Obfuscation/BogusControlFlow.h \
   /home/jason/Desktop/llvm_test/Obfuscation/CryptoUtils.h \
+  /home/jason/Desktop/llvm_test/Obfuscation/Flattening.h \
+  /home/jason/Desktop/llvm_test/Obfuscation/FlatteningPlus.h \
+  /home/jason/Desktop/llvm_test/Obfuscation/IndirectBranch.h \
+  /home/jason/Desktop/llvm_test/Obfuscation/IndirectCall.h \
   /home/jason/Desktop/llvm_test/Obfuscation/StringEncrypt.h \
-  /home/jason/Desktop/llvm_test/Obfuscation/Utils.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -3968,6 +3968,8 @@ CMakeFiles/libObfuscation.dir/Utils.cpp.o: /home/jason/Desktop/llvm_test/Obfusca
 
 /home/jason/Desktop/llvm_test/Obfuscation/PMRegistration.cpp:
 
+/home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.h:
+
 /home/jason/Desktop/llvm_test/Obfuscation/IndirectCall.h:
 
 /home/jason/Desktop/llvm_test/Obfuscation/IndirectCall.cpp:
@@ -4484,6 +4486,8 @@ CMakeFiles/libObfuscation.dir/Utils.cpp.o: /home/jason/Desktop/llvm_test/Obfusca
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
+/home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.cpp:
+
 /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/CodeGen/MachinePassManager.h:
 
 /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/GlobalAlias.h:
@@ -4773,8 +4777,6 @@ CMakeFiles/libObfuscation.dir/Utils.cpp.o: /home/jason/Desktop/llvm_test/Obfusca
 /usr/include/c++/11/bits/vector.tcc:
 
 /usr/include/c++/11/cctype:
-
-/home/jason/Desktop/llvm_test/Obfuscation/StringEncrypt.cpp:
 
 /usr/include/c++/11/cerrno:
 

@@ -23,7 +23,7 @@ add_llvm_pass_plugin(libObfuscation
     BogusControlFlow.cpp
     IndirectBranch.cpp
     IndirectCall.cpp
-    StringEncrypt.cpp
+    Ng1okStringEncryptPass.cpp
 
     Utils.cpp
     CryptoUtils.cpp

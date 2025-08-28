@@ -6,7 +6,7 @@
 #include "BogusControlFlow.h"
 #include "IndirectBranch.h"
 #include "IndirectCall.h"
-#include "StringEncrypt.h"
+#include "Ng1okStringEncryptPass.h"
 
 using namespace Ng1ok;
 using namespace llvm;
@@ -47,7 +47,7 @@ llvm::PassPluginLibraryInfo getNg1okPassPluginInfo()
                         }
                         if (Name == "senc")
                         {
-                            MPM.addPass(StringEncryptPass());
+                            MPM.addPass(Ng1okStringEncryptPass());
                             return true;
                         }
                         return false;

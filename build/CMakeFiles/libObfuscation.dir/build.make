@@ -142,19 +142,19 @@ CMakeFiles/libObfuscation.dir/IndirectCall.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/libObfuscation.dir/IndirectCall.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jason/Desktop/llvm_test/Obfuscation/IndirectCall.cpp -o CMakeFiles/libObfuscation.dir/IndirectCall.cpp.s
 
-CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o: CMakeFiles/libObfuscation.dir/flags.make
-CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o: /home/jason/Desktop/llvm_test/Obfuscation/StringEncrypt.cpp
-CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o: CMakeFiles/libObfuscation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o -MF CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o.d -o CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o -c /home/jason/Desktop/llvm_test/Obfuscation/StringEncrypt.cpp
+CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o: CMakeFiles/libObfuscation.dir/flags.make
+CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o: /home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.cpp
+CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o: CMakeFiles/libObfuscation.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o -MF CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o.d -o CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o -c /home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.cpp
 
-CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jason/Desktop/llvm_test/Obfuscation/StringEncrypt.cpp > CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.i
+CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.cpp > CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.i
 
-CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jason/Desktop/llvm_test/Obfuscation/StringEncrypt.cpp -o CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.s
+CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.cpp -o CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.s
 
 CMakeFiles/libObfuscation.dir/Utils.cpp.o: CMakeFiles/libObfuscation.dir/flags.make
 CMakeFiles/libObfuscation.dir/Utils.cpp.o: /home/jason/Desktop/llvm_test/Obfuscation/Utils.cpp
@@ -205,7 +205,7 @@ libObfuscation_OBJECTS = \
 "CMakeFiles/libObfuscation.dir/BogusControlFlow.cpp.o" \
 "CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.o" \
 "CMakeFiles/libObfuscation.dir/IndirectCall.cpp.o" \
-"CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o" \
+"CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o" \
 "CMakeFiles/libObfuscation.dir/Utils.cpp.o" \
 "CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o" \
 "CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o"
@@ -218,7 +218,7 @@ libObfuscation.so: CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.o
 libObfuscation.so: CMakeFiles/libObfuscation.dir/BogusControlFlow.cpp.o
 libObfuscation.so: CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.o
 libObfuscation.so: CMakeFiles/libObfuscation.dir/IndirectCall.cpp.o
-libObfuscation.so: CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o
+libObfuscation.so: CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o
 libObfuscation.so: CMakeFiles/libObfuscation.dir/Utils.cpp.o
 libObfuscation.so: CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o
 libObfuscation.so: CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o

@@ -16,3 +16,5 @@
 - [ollvm17-ibr](https://github.com/DreamSoule/ollvm17/blob/main/llvm-project/llvm/lib/Passes/Obfuscation/IndirectBranch.cpp)
 ### 間接函數跳轉(icall)
 - [ollvm17-icall](https://github.com/DreamSoule/ollvm17/blob/main/llvm-project/llvm/lib/Passes/Obfuscation/IndirectCall.cpp)
+### 字符串加密(senc)
+- 一個字符串對應一個加密函數
