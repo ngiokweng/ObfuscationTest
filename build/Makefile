@@ -446,6 +446,30 @@ PMRegistration.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/PMRegistration.cpp.s
 .PHONY : PMRegistration.cpp.s
 
+StringEncrypt.o: StringEncrypt.cpp.o
+.PHONY : StringEncrypt.o
+
+# target to build an object file
+StringEncrypt.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.o
+.PHONY : StringEncrypt.cpp.o
+
+StringEncrypt.i: StringEncrypt.cpp.i
+.PHONY : StringEncrypt.i
+
+# target to preprocess a source file
+StringEncrypt.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.i
+.PHONY : StringEncrypt.cpp.i
+
+StringEncrypt.s: StringEncrypt.cpp.s
+.PHONY : StringEncrypt.s
+
+# target to generate assembly for a file
+StringEncrypt.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/StringEncrypt.cpp.s
+.PHONY : StringEncrypt.cpp.s
+
 Utils.o: Utils.cpp.o
 .PHONY : Utils.o
 
@@ -512,6 +536,9 @@ help:
 	@echo "... PMRegistration.o"
 	@echo "... PMRegistration.i"
 	@echo "... PMRegistration.s"
+	@echo "... StringEncrypt.o"
+	@echo "... StringEncrypt.i"
+	@echo "... StringEncrypt.s"
 	@echo "... Utils.o"
 	@echo "... Utils.i"
 	@echo "... Utils.s"

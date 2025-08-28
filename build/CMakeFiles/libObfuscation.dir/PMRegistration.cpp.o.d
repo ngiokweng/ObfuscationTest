@@ -446,4 +446,5 @@ CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: \
  /home/jason/Desktop/llvm_test/Obfuscation/IndirectBranch.h \
  /home/jason/Desktop/llvm_test/Obfuscation/CryptoUtils.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/ManagedStatic.h \
- /home/jason/Desktop/llvm_test/Obfuscation/IndirectCall.h
+ /home/jason/Desktop/llvm_test/Obfuscation/IndirectCall.h \
+ /home/jason/Desktop/llvm_test/Obfuscation/StringEncrypt.h

@@ -55,7 +55,7 @@ int test2(int a)
 }
 
 // __attribute((__annotate__(("fla"))))
-__attribute((__annotate__(("fla-plus"))))
+// __attribute((__annotate__(("fla-plus"))))
 int controlFlowTest(int x)
 {
     int result;
@@ -120,7 +120,7 @@ string test3(string s)
     return temp + s;
 }
 
-__attribute((__annotate__(("fla-plus"))))
+// __attribute((__annotate__(("fla-plus"))))
 void updateKeys(int visited, int *keyArray, int *domArray, int domArrayLen, int randNum)
 {
     if (visited)
@@ -135,7 +135,7 @@ void updateKeys(int visited, int *keyArray, int *domArray, int domArrayLen, int 
     }
 }
 
-__attribute((__annotate__(("fla-plus"))))
+// __attribute((__annotate__(("fla-plus"))))
 int test4(int a, int b, int c)
 {
     int res = 0;
@@ -151,7 +151,7 @@ int test4(int a, int b, int c)
     return res;
 }
 
-__attribute((__annotate__(("fla-plus"))))
+// __attribute((__annotate__(("fla-plus"))))
 int test5(int a, int b, int c)
 {
     int res = 0;
@@ -215,7 +215,21 @@ int test5(int a, int b, int c)
     return res + 10;
 }
 
-__attribute((__annotate__(("icall")))) 
+void print_str(const char* str)
+{
+    printf("str: %s\n", str);
+}
+
+__attribute((__annotate__(("senc")))) 
+void test_str() {
+    const char* a = "Hello1";
+    const char* b = "Hello1";
+    print_str(a);
+    print_str(b);
+    print_str("WTFF");
+    print_str("T");
+}
+
 int main()
 {
     int arr[0x10] = {0};
@@ -229,6 +243,6 @@ int main()
     cout << "test3: " << test3("hello") << endl;
     cout << "test4(111,222,333): " << test4(111, 222, 333) << endl;
     cout << "test5(111,222,333): " << test5(1121, 1222, 34133) << endl;
-
+    test_str();
     return 0;
 }
