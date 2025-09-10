@@ -12,7 +12,7 @@ llvm::PreservedAnalyses Ng1okStringEncryptPass::run(llvm::Module &M, llvm::Modul
 
     for (Function &F : M)
     {
-        if (toObfuscate(false, &F, "senc"))
+        if (toObfuscate(true, &F, "senc"))
         {
             changed |= doStringEncrypt(F);
         }
@@ -26,12 +26,17 @@ bool Ng1okStringEncryptPass::doStringEncrypt(Function &F)
     bool changed = false;
     unordered_map<Instruction *, vector<int>> strOpMaps;
     LLVMContext &ctx = F.getContext();
-
+    
     // 收集所有包含字符串的指令 & 對應的字符串操作數索引
     for (BasicBlock &BB : F)
     {
         for (Instruction &I : BB)
         {
+            // 忽略直接返回字符串的情況
+            // 如"ret ptr @.str.4"的情況
+            if (dyn_cast<ReturnInst>(&I))
+                continue;
+            
             vector<int> strOpIdxs = tryGetStrOperands(I);
             if (!strOpIdxs.empty())
             {
@@ -42,7 +47,6 @@ bool Ng1okStringEncryptPass::doStringEncrypt(Function &F)
 
     IRBuilder<> builder(ctx);
 
-    unordered_map<GlobalVariable *, bool> replacedGVs;
 
     for (const auto &[inst, strOpIdxs] : strOpMaps)
     {
@@ -60,6 +64,11 @@ bool Ng1okStringEncryptPass::doStringEncrypt(Function &F)
 
             // 相同的字符串會指向同一個全局變量, 這裡是為了避免重複替換
             GlobalVariable *GV = dyn_cast<GlobalVariable>(inst->getOperand(strOpIdx));
+
+            if (!GV) {
+                continue;
+            }
+
             if (GV && !replacedGVs[GV])
             {
                 ConstantDataArray *CA = (ConstantDataArray *)GV->getInitializer();
@@ -79,17 +88,7 @@ bool Ng1okStringEncryptPass::doStringEncrypt(Function &F)
                 builder.CreateStore(loaded, destPtr);
             }
 
-            // 將encKeys賦給IR層, 之後傳給解密函數
-            ArrayType *keysType = ArrayType::get(builder.getInt8Ty(), encKeys.size());
-            Value *keys =
-                builder.CreateAlloca(keysType, nullptr);
-            builder.CreateMemSet(keys, builder.getInt8(0), encKeys.size(), (MaybeAlign)0);
 
-            for (int i = 0; i < encKeys.size(); i++)
-            {
-                Value *ptr = builder.CreateGEP(keysType, keys, {builder.getInt32(0), builder.getInt32(i)});
-                builder.CreateStore(builder.getInt8(encKeys[i]), ptr);
-            }
 
             // 每個字符串對應一個解密函數
             Function *decFunc = decFuncMaps[GV];
@@ -119,6 +118,7 @@ vector<int> Ng1okStringEncryptPass::tryGetStrOperands(Instruction &I)
          opIdx != numOpnds; ++opIdx)
     {
         Value *stripOp = I.getOperand(opIdx)->stripPointerCasts();
+        
         if (stripOp->getName().contains(".str"))
         {
             strOpIdxs.emplace_back(opIdx);

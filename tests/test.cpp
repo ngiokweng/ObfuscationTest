@@ -3,12 +3,23 @@
 
 using namespace std;
 
+
+void print_str(const char* str);
+#define STR1 "[nglog obtest]"
+#define LOG1() print_str(STR1)
+#define LOG2() print_str(STR1)
+#define LOG3() print_str(STR1)
+
+
+
 int foo(int s, int n)
 {
     for (int i = 0; i < n; i++)
     {
         s += i;
     }
+
+    LOG3();
     return s;
 }
 
@@ -220,7 +231,8 @@ void print_str(const char* str)
     printf("str: %s\n", str);
 }
 
-__attribute((__annotate__(("senc")))) 
+// __attribute((__annotate__(("bcf")))) 
+__attribute__((always_inline)) inline
 void test_str() {
     const char* a = "Hello1";
     const char* b = "Hello1";
@@ -229,6 +241,8 @@ void test_str() {
     print_str("WTFF");
     print_str("T");
     fopen("/proc/self/maps", "r");
+
+    LOG1();
 }
 
 int main()
@@ -245,5 +259,6 @@ int main()
     cout << "test4(111,222,333): " << test4(111, 222, 333) << endl;
     cout << "test5(111,222,333): " << test5(1121, 1222, 34133) << endl;
     test_str();
+    LOG2();
     return 0;
 }

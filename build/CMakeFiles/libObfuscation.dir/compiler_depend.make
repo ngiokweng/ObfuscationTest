@@ -3317,7 +3317,7 @@ CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: /home/jason/Desktop/llvm_tes
   /home/jason/Desktop/llvm_test/Obfuscation/FlatteningPlus.h \
   /home/jason/Desktop/llvm_test/Obfuscation/IndirectBranch.h \
   /home/jason/Desktop/llvm_test/Obfuscation/IndirectCall.h \
-  /home/jason/Desktop/llvm_test/Obfuscation/StringEncrypt.h \
+  /home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -3963,8 +3963,6 @@ CMakeFiles/libObfuscation.dir/Utils.cpp.o: /home/jason/Desktop/llvm_test/Obfusca
 /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Transforms/Utils/SimplifyCFGOptions.h:
 
 /home/jason/Desktop/llvm_test/Obfuscation/Utils.cpp:
-
-/home/jason/Desktop/llvm_test/Obfuscation/StringEncrypt.h:
 
 /home/jason/Desktop/llvm_test/Obfuscation/PMRegistration.cpp:
 

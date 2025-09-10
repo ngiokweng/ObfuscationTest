@@ -18,3 +18,18 @@
 - [ollvm17-icall](https://github.com/DreamSoule/ollvm17/blob/main/llvm-project/llvm/lib/Passes/Obfuscation/IndirectCall.cpp)
 ### 字符串加密(senc)
 - 一個字符串對應一個加密函數
+
+## Some problems
+### 字符串加密(senc)
+1. 在`.rodata`中的字符串不會被加密: 
+```cpp
+// 如這樣全局定義的字符串
+const char *p1 = "hello";
+```
+2. 不能像這樣返回字符串, 否則混淆後會變成亂碼
+```cpp
+char* get_string() {
+    char* str = "from get_string()";
+    return str;
+}
+```

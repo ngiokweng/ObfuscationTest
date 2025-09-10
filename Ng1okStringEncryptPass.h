@@ -33,6 +33,8 @@ namespace Ng1ok
         llvm::CryptoUtils RandomEngine;
         unordered_map<GlobalVariable*, Function*> decFuncMaps;
 
+        unordered_map<GlobalVariable *, bool> replacedGVs;
+
     };
 
 } // namespace Ng1ok
