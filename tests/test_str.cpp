@@ -28,7 +28,8 @@ static void early_use() {
 
 char* get_string() {
     char* str = "from get_string()";
-    return str;
+    char* str2 = str;
+    return str2;
 }
 
 void print_str(const char* str)

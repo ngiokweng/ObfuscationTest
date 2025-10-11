@@ -42,6 +42,11 @@ bool Ng1okStringEncryptPass::doStringEncrypt(Function &F)
             {
                 strOpMaps[&I] = strOpIdxs;
             }
+            
+            // 不允許在調用前把棧幀彈掉, 以此避免函數參數被序言壓棧覆蓋的問題
+            if (CallInst* callInst = dyn_cast<CallInst>(&I)) {
+                callInst->setTailCall(false);
+            }
         }
     }
 
@@ -78,16 +83,10 @@ bool Ng1okStringEncryptPass::doStringEncrypt(Function &F)
             }
             replacedGVs[GV] = true;
 
-            // 構建IR指令, 將解密後的字符串逐字節存入局部變量中
-            for (int i = 0; i < targetStr.length(); i++)
-            {
-                Value *destPtr = builder.CreateGEP(strArrayType, strAlloca, {builder.getInt32(0), builder.getInt32(i)});
-                Value *srcPtr = builder.CreateGEP(strArrayType, GV, {builder.getInt32(0), builder.getInt32(i)});
-
-                Value *loaded = builder.CreateLoad(Type::getInt8Ty(ctx), srcPtr);
-                builder.CreateStore(loaded, destPtr);
-            }
-
+            // 構建IR指令, 將加密後的字符串逐字節存入局部變量中
+            // from: https://github.com/za233/Polaris-Obfuscator/blob/main/src/llvm/lib/Transforms/Obfuscation/GlobalsEncryption.cpp#L144
+            strAlloca->setAlignment(Align(GV->getAlignment()));
+            builder.CreateMemCpy(strAlloca, (MaybeAlign)0, GV, (MaybeAlign)0, builder.getInt64(targetStr.length()));
 
 
             // 每個字符串對應一個解密函數
