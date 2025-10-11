@@ -245,6 +245,10 @@ void test_str() {
     LOG1();
 }
 
+int add_test(int a, int b) {
+    return a + b;
+}
+
 int main()
 {
     int arr[0x10] = {0};
@@ -260,5 +264,7 @@ int main()
     cout << "test5(111,222,333): " << test5(1121, 1222, 34133) << endl;
     test_str();
     LOG2();
+    cout << add_test(12, 34) << endl;
+
     return 0;
 }
