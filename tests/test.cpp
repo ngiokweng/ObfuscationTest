@@ -37,7 +37,7 @@ int encrypt(int *arr, int n)
 
     return res;
 }
-
+__attribute((__annotate__(("nosenc"))))
 int test2(int a)
 {
     int b = a + 10;
@@ -67,6 +67,7 @@ int test2(int a)
 
 // __attribute((__annotate__(("fla"))))
 // __attribute((__annotate__(("fla-plus"))))
+__attribute((__annotate__(("nosenc"))))
 int controlFlowTest(int x)
 {
     int result;
@@ -226,6 +227,7 @@ int test5(int a, int b, int c)
     return res + 10;
 }
 
+// __attribute((__annotate__(("nosenc"))))
 void print_str(const char* str)
 {
     printf("str: %s\n", str);
@@ -243,6 +245,13 @@ void test_str() {
     fopen("/proc/self/maps", "r");
 
     LOG1();
+}
+
+void test_str2() {
+    string str = "";
+    const char* a = ":\00";
+    str = "hello!!!";
+    puts(a);
 }
 
 int add_test(int a, int b) {
@@ -265,6 +274,7 @@ int main()
     test_str();
     LOG2();
     cout << add_test(12, 34) << endl;
+    test_str2();
 
     return 0;
 }

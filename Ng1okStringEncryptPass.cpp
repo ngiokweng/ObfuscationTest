@@ -6,19 +6,43 @@
 using namespace Ng1ok;
 using namespace llvm;
 
+// 判斷是否系統庫
+static bool isSystemNamespace(StringRef mangled) {
+    return mangled.starts_with("_ZNSt")   // std::
+        || mangled.starts_with("_ZNKSt")  // const std::
+        || mangled.contains("__ndk1");   // libc++
+}
+
+// 判斷是否第3方庫
+static bool isTPL(StringRef funcName) {
+    return funcName.starts_with("_ZN4Json"); // jsoncpp
+}
+
 llvm::PreservedAnalyses Ng1okStringEncryptPass::run(llvm::Module &M, llvm::ModuleAnalysisManager &AM)
 {
     bool changed = false;
 
     for (Function &F : M)
     {
-        if (toObfuscate(true, &F, "senc"))
+        if (!F.isDeclaration() && toObfuscate(true, &F, "senc") && !isSystemNamespace(F.getName()) && !isTPL(F.getName()))
         {
+            outs() << "Function: " << F.getName() << "\n";
             changed |= doStringEncrypt(F);
         }
     }
 
     return changed ? llvm::PreservedAnalyses::none() : llvm::PreservedAnalyses::all();
+}
+
+uint32_t Ng1okStringEncryptPass::maintainStrArea(Value* strOp) {
+    string str = convertOpToString(strOp);
+    strOp->print(outs());
+    // outs() << "\n";
+    // outs() << "[nglog] str: " << str << "\n";
+    uint32_t prevOffset = currentStrAreaOffset;
+    currentStrAreaOffset += (str.size() + 1);
+    return prevOffset;
+
 }
 
 bool Ng1okStringEncryptPass::doStringEncrypt(Function &F)
@@ -27,6 +51,9 @@ bool Ng1okStringEncryptPass::doStringEncrypt(Function &F)
     unordered_map<Instruction *, vector<int>> strOpMaps;
     LLVMContext &ctx = F.getContext();
     
+    // 每個函數對應一個strArea
+    currentStrAreaOffset = 0;
+
     // 收集所有包含字符串的指令 & 對應的字符串操作數索引
     for (BasicBlock &BB : F)
     {
@@ -38,6 +65,15 @@ bool Ng1okStringEncryptPass::doStringEncrypt(Function &F)
                 continue;
             
             vector<int> strOpIdxs = tryGetStrOperands(I);
+
+            // 將strOp映射到strArea
+            for (int strOpIdx : strOpIdxs) {
+                Value* strOp = I.getOperand(strOpIdx);
+                if (strArea.find(strOp) == strArea.end()) {
+                    strArea[strOp] = maintainStrArea(strOp);
+                }
+            }
+
             if (!strOpIdxs.empty())
             {
                 strOpMaps[&I] = strOpIdxs;
@@ -50,8 +86,19 @@ bool Ng1okStringEncryptPass::doStringEncrypt(Function &F)
         }
     }
 
+    // build strArea
+    std::vector<uint8_t> tmpStrArea(currentStrAreaOffset);
+    ArrayRef<uint8_t> strAreaAR(tmpStrArea);
+    Constant *strAreaInit = ConstantDataArray::get(ctx, strAreaAR);
+    ArrayType *strAreaType = ArrayType::get(Type::getInt8Ty(ctx), tmpStrArea.size());
+
+    GlobalVariable* strAreaGV = new GlobalVariable(*F.getParent(), strAreaType, false, GlobalValue::InternalLinkage, strAreaInit, "strArea_" + F.getName());
+
+
     IRBuilder<> builder(ctx);
 
+    IntegerType *Int64Ty = Type::getInt64Ty(ctx);
+    ConstantInt *Zero = ConstantInt::get(Int64Ty, 0);
 
     for (const auto &[inst, strOpIdxs] : strOpMaps)
     {
@@ -59,20 +106,25 @@ bool Ng1okStringEncryptPass::doStringEncrypt(Function &F)
         builder.SetInsertPoint(inst);
         for (int strOpIdx : strOpIdxs)
         {
-            string targetStr = convertOpToString(inst->getOperand(strOpIdx));
-            outs() << "targetStr: " << targetStr << "\n";
+            Value* strOp = inst->getOperand(strOpIdx);
+            string targetStr = convertOpToString(strOp);
+            
+            if (targetStr == "") {
+                errs() << "convertOpToString() fail... \n";
+                continue;
+            }
 
-            ArrayType *strArrayType = ArrayType::get(Type::getInt8Ty(ctx), targetStr.length() + 1);
-            AllocaInst *strAlloca = builder.CreateAlloca(strArrayType, nullptr);
 
             vector<uint8_t> encKeys = encryptString(targetStr);
 
             // 相同的字符串會指向同一個全局變量, 這裡是為了避免重複替換
-            GlobalVariable *GV = dyn_cast<GlobalVariable>(inst->getOperand(strOpIdx));
+            GlobalVariable *GV = dyn_cast<GlobalVariable>(strOp);
 
             if (!GV) {
                 continue;
             }
+
+            outs() << "targetStr = " << targetStr << "\n";
 
             if (GV && !replacedGVs[GV])
             {
@@ -85,8 +137,15 @@ bool Ng1okStringEncryptPass::doStringEncrypt(Function &F)
 
             // 構建IR指令, 將加密後的字符串逐字節存入局部變量中
             // from: https://github.com/za233/Polaris-Obfuscator/blob/main/src/llvm/lib/Transforms/Obfuscation/GlobalsEncryption.cpp#L144
-            strAlloca->setAlignment(Align(GV->getAlignment()));
-            builder.CreateMemCpy(strAlloca, (MaybeAlign)0, GV, (MaybeAlign)0, builder.getInt64(targetStr.length()));
+            // strAlloca->setAlignment(Align(GV->getAlignment()));
+            // builder.CreateMemCpy(strAlloca, (MaybeAlign)0, GV, (MaybeAlign)0, builder.getInt64(targetStr.length()));
+            assert(strArea.find(strOp) != strArea.end() && "no way!!!!");
+
+            // 構建IR指令, 將加密後的字符串逐字節存入 strArea + valueOffset指向的位置
+            uint32_t valueOffset = strArea[strOp];
+            Value *offsetValue = ConstantInt::get(Int64Ty, valueOffset);
+            Value *ptr8 = builder.CreateGEP(strAreaGV->getValueType(), strAreaGV, {Zero, offsetValue});
+            builder.CreateMemCpy(ptr8, (MaybeAlign)0, GV, (MaybeAlign)0, builder.getInt64(targetStr.length() + 1));
 
 
             // 每個字符串對應一個解密函數
@@ -99,9 +158,9 @@ bool Ng1okStringEncryptPass::doStringEncrypt(Function &F)
 
             builder.CreateCall(
                 FunctionCallee(decFunc),
-                {builder.CreateGEP(strArrayType, strAlloca, builder.getInt32(0))});
+                {builder.CreateGEP(strAreaType, ptr8, Zero)});
 
-            inst->setOperand(strOpIdx, strAlloca);
+            inst->setOperand(strOpIdx, ptr8);
         }
     }
 
@@ -116,7 +175,7 @@ vector<int> Ng1okStringEncryptPass::tryGetStrOperands(Instruction &I)
     for (int opIdx = 0, numOpnds = I.getNumOperands();
          opIdx != numOpnds; ++opIdx)
     {
-        Value *stripOp = I.getOperand(opIdx)->stripPointerCasts();
+        Value *stripOp = I.getOperand(opIdx)->stripPointerCastsAndAliases();
         
         if (stripOp->getName().contains(".str"))
         {
@@ -130,7 +189,7 @@ vector<int> Ng1okStringEncryptPass::tryGetStrOperands(Instruction &I)
 string Ng1okStringEncryptPass::convertOpToString(Value *op)
 {
     GlobalVariable *globalVar = dyn_cast<GlobalVariable>(op);
-    if (!globalVar)
+    if (!globalVar || !globalVar->hasInitializer() )
     {
         errs() << "dyn cast gloabl err";
         return "";

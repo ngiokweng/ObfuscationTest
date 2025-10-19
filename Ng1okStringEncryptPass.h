@@ -28,13 +28,18 @@ namespace Ng1ok
         vector<uint8_t> encryptString(string& str);
         Function *buildDecryptString(Module &M, LLVMContext &C, vector<uint8_t> encKeys);
 
+        uint32_t maintainStrArea(Value* strOp);
+
         static bool isRequired() { return true; }
 
         llvm::CryptoUtils RandomEngine;
         unordered_map<GlobalVariable*, Function*> decFuncMaps;
 
         unordered_map<GlobalVariable *, bool> replacedGVs;
-
+        
+        uint32_t currentStrAreaOffset;
+        unordered_map<Value*, uint32_t> strArea;
+        
     };
 
 } // namespace Ng1ok

@@ -26,7 +26,7 @@
 // 如這樣全局定義的字符串
 const char *p1 = "hello";
 ```
-2. 不能像這樣返回字符串, 否則混淆後會變成亂碼
+2. 不能像這樣返回字符串, 否則混淆後會變成亂碼 (新版已解決)
 ```cpp
 char* get_string() {
     char* str = "from get_string()";

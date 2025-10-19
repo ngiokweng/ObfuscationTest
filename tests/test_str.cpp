@@ -37,6 +37,41 @@ void print_str(const char* str)
     printf("str: %s\n", str);
 }
 
+#include <string>
+std::string get_string2() {
+    return "11111111";
+}
+
+class TestStr
+{
+public:
+    TestStr(void (*callback)(const char*)) : on_detect(callback) {
+
+    }
+    void test() {
+        std::string s = get_string2();
+        on_detect(s.data());
+        printf("flag: %s", flag.c_str());
+    }
+
+private:
+    void (*on_detect)(const char*);
+    std::string flag = "I_AM_FLAG";
+
+};
+
+
+void my_callback(const char* msg) {
+    printf("[my_callback] %s", msg);
+}
+
+const char* const test2 () {
+    static const char* const reps[2][3] = {{"NaN", "-Infinity", "Infinity"},
+                                           {"null", "-1e+9999", "1e+9999"}};
+    
+    return reps[0][0];
+}
+
 int main() {
     // 6. 函數內聯後字符串可能消失在原函數
     auto lambda = []() { return "inline"; };
@@ -48,5 +83,13 @@ int main() {
     puts(WTF_STR);
 
     puts(get_string());
+
+    TestStr testStr(my_callback);
+    testStr.test();
+
+    puts(test2());
+
+    puts(": ");
+
     return 0;
 }
