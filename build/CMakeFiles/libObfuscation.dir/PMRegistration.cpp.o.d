@@ -447,4 +447,8 @@ CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: \
  /home/jason/Desktop/llvm_test/Obfuscation/CryptoUtils.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/ManagedStatic.h \
  /home/jason/Desktop/llvm_test/Obfuscation/IndirectCall.h \
- /home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.h
+ /home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.h \
+ /usr/include/c++/11/queue /usr/include/c++/11/deque \
+ /usr/include/c++/11/bits/stl_deque.h /usr/include/c++/11/bits/deque.tcc \
+ /usr/include/c++/11/bits/stl_queue.h \
+ /home/jason/Desktop/llvm_test/Obfuscation/GlobalsEncryption.h

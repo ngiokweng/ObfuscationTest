@@ -234,6 +234,7 @@ void print_str(const char* str)
 }
 
 // __attribute((__annotate__(("bcf")))) 
+__attribute((__annotate__(("gvenc")))) 
 __attribute__((always_inline)) inline
 void test_str() {
     const char* a = "Hello1";
@@ -246,7 +247,7 @@ void test_str() {
 
     LOG1();
 }
-
+// __attribute((__annotate__(("gvenc")))) 
 void test_str2() {
     string str = "";
     const char* a = ":\00";
@@ -258,6 +259,7 @@ int add_test(int a, int b) {
     return a + b;
 }
 
+// __attribute((__annotate__(("gvenc")))) 
 int main()
 {
     int arr[0x10] = {0};

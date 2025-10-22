@@ -32,11 +32,6 @@ char* get_string() {
     return str2;
 }
 
-void print_str(const char* str)
-{
-    printf("str: %s\n", str);
-}
-
 #include <string>
 std::string get_string2() {
     return "11111111";
@@ -72,6 +67,30 @@ const char* const test2 () {
     return reps[0][0];
 }
 
+
+#include <string>
+#define STR1 "[nglog obtest]"
+#define LOG(s) print_str(STR1, s)
+
+void print_str(const char* str, const char* s)
+{
+    printf("[%s]: %s\n", str, s);
+}
+
+__attribute((__annotate__(("senc"))))
+void test3(std::string s) {
+    LOG(s.c_str());
+}
+__attribute((__annotate__(("senc"))))
+__attribute((__annotate__(("test1234"))))
+void test4(const char* s) {
+    LOG(s);
+}
+
+void test5(const char* s) {
+    LOG(s);
+}
+
 int main() {
     // 6. 函數內聯後字符串可能消失在原函數
     auto lambda = []() { return "inline"; };
@@ -90,6 +109,10 @@ int main() {
     puts(test2());
 
     puts(": ");
+
+    test3("i am test3");
+    test4("i am test4");
+    test5("i am test5");
 
     return 0;
 }

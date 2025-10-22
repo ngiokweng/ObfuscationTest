@@ -374,6 +374,30 @@ FlatteningPlus.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.s
 .PHONY : FlatteningPlus.cpp.s
 
+GlobalsEncryption.o: GlobalsEncryption.cpp.o
+.PHONY : GlobalsEncryption.o
+
+# target to build an object file
+GlobalsEncryption.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.o
+.PHONY : GlobalsEncryption.cpp.o
+
+GlobalsEncryption.i: GlobalsEncryption.cpp.i
+.PHONY : GlobalsEncryption.i
+
+# target to preprocess a source file
+GlobalsEncryption.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.i
+.PHONY : GlobalsEncryption.cpp.i
+
+GlobalsEncryption.s: GlobalsEncryption.cpp.s
+.PHONY : GlobalsEncryption.s
+
+# target to generate assembly for a file
+GlobalsEncryption.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/libObfuscation.dir/build.make CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.s
+.PHONY : GlobalsEncryption.cpp.s
+
 IndirectBranch.o: IndirectBranch.cpp.o
 .PHONY : IndirectBranch.o
 
@@ -527,6 +551,9 @@ help:
 	@echo "... FlatteningPlus.o"
 	@echo "... FlatteningPlus.i"
 	@echo "... FlatteningPlus.s"
+	@echo "... GlobalsEncryption.o"
+	@echo "... GlobalsEncryption.i"
+	@echo "... GlobalsEncryption.s"
 	@echo "... IndirectBranch.o"
 	@echo "... IndirectBranch.i"
 	@echo "... IndirectBranch.s"

@@ -24,6 +24,7 @@ add_llvm_pass_plugin(libObfuscation
     IndirectBranch.cpp
     IndirectCall.cpp
     Ng1okStringEncryptPass.cpp
+    GlobalsEncryption.cpp
 
     Utils.cpp
     CryptoUtils.cpp

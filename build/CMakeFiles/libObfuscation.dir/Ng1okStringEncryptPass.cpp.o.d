@@ -303,7 +303,11 @@ CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o: \
  /home/jason/Desktop/Downloads/llvm-project/build/include/llvm/IR/IntrinsicEnums.inc \
  /home/jason/Desktop/llvm_test/Obfuscation/CryptoUtils.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/ManagedStatic.h \
- /usr/include/c++/11/atomic \
+ /usr/include/c++/11/atomic /usr/include/c++/11/set \
+ /usr/include/c++/11/bits/stl_tree.h /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/bits/stl_multiset.h /usr/include/c++/11/queue \
+ /usr/include/c++/11/deque /usr/include/c++/11/bits/stl_deque.h \
+ /usr/include/c++/11/bits/deque.tcc /usr/include/c++/11/bits/stl_queue.h \
  /home/jason/Desktop/llvm_test/Obfuscation/Utils.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Passes/PassBuilder.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Analysis/CGSCCPassManager.h \
@@ -408,9 +412,6 @@ CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o: \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Analysis/LoopInfo.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/GenericLoopInfo.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/PostOrderIterator.h \
- /usr/include/c++/11/set /usr/include/c++/11/bits/stl_tree.h \
- /usr/include/c++/11/bits/stl_set.h \
- /usr/include/c++/11/bits/stl_multiset.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/SetOperations.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/GenericDomTree.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/CFGDiff.h \
