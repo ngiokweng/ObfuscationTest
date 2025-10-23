@@ -3328,7 +3328,6 @@ CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o
  /home/jason/Desktop/llvm_test/Obfuscation/CryptoUtils.h
  /home/jason/Desktop/llvm_test/Obfuscation/Flattening.h
  /home/jason/Desktop/llvm_test/Obfuscation/FlatteningPlus.h
- /home/jason/Desktop/llvm_test/Obfuscation/GlobalsEncryption.h
  /home/jason/Desktop/llvm_test/Obfuscation/IndirectBranch.h
  /home/jason/Desktop/llvm_test/Obfuscation/IndirectCall.h
  /home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.h

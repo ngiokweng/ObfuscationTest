@@ -1,8 +1,6 @@
 #include "Flattening.h"
 #include "Utils.h"
 
-#include <vector>
-
 #include "llvm/IR/BasicBlock.h"
 #include "llvm/Passes/PassPlugin.h"
 #include "llvm/Passes/PassBuilder.h"
@@ -12,6 +10,17 @@ using namespace llvm;
 using namespace Ng1ok;
 
 #define DEBUG_TYPE "fla"
+
+uint32_t FlatteningPass::getUniqueNumber() {
+    uint32_t res;
+    do {
+        res = RandomEngine.get_uint32_t();
+    } while (randNumSet.find(res) != randNumSet.end());
+
+    randNumSet.insert(res);
+
+    return res;
+}
 
 PreservedAnalyses FlatteningPass::run(llvm::Module &M, llvm::ModuleAnalysisManager &AM)
 {
@@ -33,13 +42,14 @@ bool FlatteningPass::flattening(llvm::Function &F)
     BasicBlock *entryBB = &F.getEntryBlock();
     BasicBlock *loopEntry, *loopEnd, *defaultCaseBB, *succBB1, *succBB2;
     LLVMContext &ctx = F.getContext();
-    int randNumCase = 0;
+    uint32_t randNumCase = 0;
     IRBuilder<> builder(ctx);
     AllocaInst *swVarPtr;
     LoadInst *swVar;
     SwitchInst *swInst;
     ConstantInt *numCase;
     Value *selVal, *brCondVal;
+    vector<unsigned int> randlists;
 
     // 保存原始基本塊
     for (BasicBlock &B : F)
@@ -116,7 +126,7 @@ bool FlatteningPass::flattening(llvm::Function &F)
     // -----------------------------------------------------
     // 初始化switch value
     srand(time(0));
-    randNumCase = rand();
+    randNumCase = getUniqueNumber();
     // 設置插入點為entryBB末尾
     builder.SetInsertPoint(entryBB);
     // alloca指令: 類似malloc, 但是分配在棧, 返回指針
@@ -145,7 +155,7 @@ bool FlatteningPass::flattening(llvm::Function &F)
         numCase = cast<ConstantInt>(builder.getInt32(randNumCase));
         BB->moveBefore(loopEnd);
         swInst->addCase(numCase, BB);
-        randNumCase = rand();
+        randNumCase = getUniqueNumber();
     }
 
     // 根據BB的後繼, 可分成3種情況來處理
@@ -199,6 +209,7 @@ bool FlatteningPass::flattening(llvm::Function &F)
 
     // 修複PHI指令和逃逸變量
     fixStack(F);
+    // fixStack(&F);
 
     return true;
 }

@@ -97,26 +97,15 @@ Function *buildUpdateKeys(Module &M, LLVMContext &C)
     return F;
 }
 
-// from: https://github.com/SsageParuders/SsagePass/blob/master/Obfuscation/src/FlatteningEnhanced.cpp#L90
-int getUniqueNumber(vector<unsigned int> *rand_list)
-{
-    unsigned int num = rand();
-    while (true)
-    {
-        bool state = true;
-        for (std::vector<unsigned int>::iterator n = rand_list->begin();
-             n != rand_list->end(); n++)
-            if (*n == num)
-            {
-                state = false;
-                break;
-            }
-        if (state)
-            break;
-        errs() << "WTFFFFFFFFFFFF\n";
-        num = rand();
-    }
-    return num;
+uint32_t FlatteningPlusPass::getUniqueNumber() {
+    uint32_t res;
+    do {
+        res = RandomEngine.get_uint32_t();
+    } while (randNumSet.find(res) != randNumSet.end());
+
+    randNumSet.insert(res);
+
+    return res;
 }
 
 PreservedAnalyses FlatteningPlusPass::run(llvm::Module &M, llvm::ModuleAnalysisManager &AM)
@@ -128,7 +117,7 @@ PreservedAnalyses FlatteningPlusPass::run(llvm::Module &M, llvm::ModuleAnalysisM
         if (&F == updateKeys)
             continue;
 
-        if (toObfuscate(false, &F, "fla-plus"))
+        if (toObfuscate(false, &F, "fla-plus") || F.getName().str().find("startVM") != std::string::npos)
         {
             auto &FAM = AM.getResult<FunctionAnalysisManagerModuleProxy>(M).getManager();
             DominatorTree *DT = &FAM.getResult<DominatorTreeAnalysis>(F);
@@ -144,7 +133,7 @@ bool FlatteningPlusPass::flattening(llvm::Function &F, llvm::Function *updateKey
     BasicBlock *entryBB = &F.getEntryBlock();
     BasicBlock *loopEntry, *loopEnd, *defaultCaseBB, *succBB1, *succBB2;
     LLVMContext &ctx = F.getContext();
-    int randNumCase = 0;
+    uint32_t randNumCase = 0;
     IRBuilder<> builder(ctx);
     AllocaInst *swVarPtr;
     LoadInst *swVar;
@@ -268,7 +257,7 @@ bool FlatteningPlusPass::flattening(llvm::Function &F, llvm::Function *updateKey
         // doms保存了parent支配的child索引 (origBB索引)
         vector<int> doms;
 
-        int randNum = getUniqueNumber(&randlists);
+        uint32_t randNum = getUniqueNumber();
         for (NodeTy child : *parent)
         {
             BasicBlock *childBB = child->getBlock();
@@ -323,7 +312,7 @@ bool FlatteningPlusPass::flattening(llvm::Function &F, llvm::Function *updateKey
     // 構建entryBB: 初始化switch value -> 跳到loopEntry
     // -----------------------------------------------------
     // 初始化switch value
-    randNumCase = getUniqueNumber(&randlists);
+    randNumCase = getUniqueNumber();
     // 設置插入點為entryBB末尾
     builder.SetInsertPoint(entryBB);
     // alloca指令: 類似malloc, 但是分配在棧, 返回指針
@@ -352,7 +341,7 @@ bool FlatteningPlusPass::flattening(llvm::Function &F, llvm::Function *updateKey
         numCase = cast<ConstantInt>(builder.getInt32(randNumCase));
         BB->moveBefore(loopEnd);
         swInst->addCase(numCase, BB);
-        randNumCase = getUniqueNumber(&randlists);
+        randNumCase = getUniqueNumber();
     }
 
     // 根據BB的後繼, 可分成3種情況來處理
@@ -427,6 +416,7 @@ bool FlatteningPlusPass::flattening(llvm::Function &F, llvm::Function *updateKey
 
     // 修複PHI指令和逃逸變量
     fixStack(F);
+    // fixStack(&F);
 
     return true;
 }

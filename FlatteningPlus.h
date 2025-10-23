@@ -5,6 +5,11 @@
 #include "llvm/IR/Module.h"
 #include "llvm/IR/Dominators.h"
 
+
+#include "CryptoUtils.h"
+
+#include <set>
+
 using NodeTy = llvm::DomTreeNodeBase<llvm::BasicBlock> *;
 namespace Ng1ok
 {
@@ -14,7 +19,11 @@ namespace Ng1ok
         llvm::PreservedAnalyses run(llvm::Module &M,
                                     llvm::ModuleAnalysisManager &);
         bool flattening(llvm::Function &F, llvm::Function* updateKeys, NodeTy CFGRoot);
+        uint32_t getUniqueNumber();
         static bool isRequired() { return true; }
+
+        llvm::CryptoUtils RandomEngine;
+        std::set<uint32_t> randNumSet;
     };
 
 } // namespace Ng1ok

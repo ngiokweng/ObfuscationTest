@@ -316,6 +316,11 @@ CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.o: \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/CFGDiff.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/CFGUpdate.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/GenericDomTree.h \
+ /home/jason/Desktop/llvm_test/Obfuscation/CryptoUtils.h \
+ /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/ManagedStatic.h \
+ /usr/include/c++/11/atomic /usr/include/c++/11/set \
+ /usr/include/c++/11/bits/stl_tree.h /usr/include/c++/11/bits/stl_set.h \
+ /usr/include/c++/11/bits/stl_multiset.h \
  /home/jason/Desktop/llvm_test/Obfuscation/Utils.h \
  /usr/include/c++/11/deque /usr/include/c++/11/bits/stl_deque.h \
  /usr/include/c++/11/bits/deque.tcc \
@@ -383,7 +388,6 @@ CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.o: \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Passes/OptimizationLevel.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/PGOOptions.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/IntrusiveRefCntPtr.h \
- /usr/include/c++/11/atomic \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Transforms/IPO/Inliner.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Analysis/InlineAdvisor.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Analysis/InlineCost.h \
@@ -415,9 +419,6 @@ CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.o: \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Analysis/LoopInfo.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Support/GenericLoopInfo.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/PostOrderIterator.h \
- /usr/include/c++/11/set /usr/include/c++/11/bits/stl_tree.h \
- /usr/include/c++/11/bits/stl_set.h \
- /usr/include/c++/11/bits/stl_multiset.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/ADT/SetOperations.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/Analysis/LoopNestAnalysis.h \
  /home/jason/Desktop/Downloads/llvm-project/llvm/include/llvm/IR/PassInstrumentation.h \
