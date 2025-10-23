@@ -156,24 +156,10 @@ CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.cpp -o CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.s
 
-CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.o: CMakeFiles/libObfuscation.dir/flags.make
-CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.o: /home/jason/Desktop/llvm_test/Obfuscation/GlobalsEncryption.cpp
-CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.o: CMakeFiles/libObfuscation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.o -MF CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.o.d -o CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.o -c /home/jason/Desktop/llvm_test/Obfuscation/GlobalsEncryption.cpp
-
-CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jason/Desktop/llvm_test/Obfuscation/GlobalsEncryption.cpp > CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.i
-
-CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jason/Desktop/llvm_test/Obfuscation/GlobalsEncryption.cpp -o CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.s
-
 CMakeFiles/libObfuscation.dir/Utils.cpp.o: CMakeFiles/libObfuscation.dir/flags.make
 CMakeFiles/libObfuscation.dir/Utils.cpp.o: /home/jason/Desktop/llvm_test/Obfuscation/Utils.cpp
 CMakeFiles/libObfuscation.dir/Utils.cpp.o: CMakeFiles/libObfuscation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/libObfuscation.dir/Utils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/libObfuscation.dir/Utils.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libObfuscation.dir/Utils.cpp.o -MF CMakeFiles/libObfuscation.dir/Utils.cpp.o.d -o CMakeFiles/libObfuscation.dir/Utils.cpp.o -c /home/jason/Desktop/llvm_test/Obfuscation/Utils.cpp
 
 CMakeFiles/libObfuscation.dir/Utils.cpp.i: cmake_force
@@ -187,7 +173,7 @@ CMakeFiles/libObfuscation.dir/Utils.cpp.s: cmake_force
 CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o: CMakeFiles/libObfuscation.dir/flags.make
 CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o: /home/jason/Desktop/llvm_test/Obfuscation/CryptoUtils.cpp
 CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o: CMakeFiles/libObfuscation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o -MF CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o.d -o CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o -c /home/jason/Desktop/llvm_test/Obfuscation/CryptoUtils.cpp
 
 CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.i: cmake_force
@@ -201,7 +187,7 @@ CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.s: cmake_force
 CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: CMakeFiles/libObfuscation.dir/flags.make
 CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: /home/jason/Desktop/llvm_test/Obfuscation/PMRegistration.cpp
 CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o: CMakeFiles/libObfuscation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o -MF CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o.d -o CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o -c /home/jason/Desktop/llvm_test/Obfuscation/PMRegistration.cpp
 
 CMakeFiles/libObfuscation.dir/PMRegistration.cpp.i: cmake_force
@@ -220,7 +206,6 @@ libObfuscation_OBJECTS = \
 "CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.o" \
 "CMakeFiles/libObfuscation.dir/IndirectCall.cpp.o" \
 "CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o" \
-"CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.o" \
 "CMakeFiles/libObfuscation.dir/Utils.cpp.o" \
 "CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o" \
 "CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o"
@@ -234,13 +219,12 @@ libObfuscation.so: CMakeFiles/libObfuscation.dir/BogusControlFlow.cpp.o
 libObfuscation.so: CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.o
 libObfuscation.so: CMakeFiles/libObfuscation.dir/IndirectCall.cpp.o
 libObfuscation.so: CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o
-libObfuscation.so: CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.o
 libObfuscation.so: CMakeFiles/libObfuscation.dir/Utils.cpp.o
 libObfuscation.so: CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o
 libObfuscation.so: CMakeFiles/libObfuscation.dir/PMRegistration.cpp.o
 libObfuscation.so: CMakeFiles/libObfuscation.dir/build.make
 libObfuscation.so: CMakeFiles/libObfuscation.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX shared module libObfuscation.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jason/Desktop/llvm_test/Obfuscation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX shared module libObfuscation.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/libObfuscation.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

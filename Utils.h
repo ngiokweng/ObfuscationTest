@@ -11,6 +11,7 @@ namespace Ng1ok {
 
 namespace llvm {
     void fixStack(Function& F);
+    // void fixStack(Function *const F);
     bool toObfuscate(bool defaultFlag, Function *f, std::string const &attribute);
     std::string getFunctionAnnotation(Function *F);
 }

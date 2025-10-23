@@ -102,31 +102,117 @@ void llvm::fixStack(Function &F)
   while (isa<AllocaInst>(I))
     ++I;
 
-  for (BasicBlock &BB : F)
-  {
-    for (Instruction &Inst : BB)
+  do {
+    origPHI.clear();
+    origReg.clear();
+
+    for (BasicBlock &BB : F)
     {
-      if (PN = dyn_cast<PHINode>(&Inst))
+      for (Instruction &Inst : BB)
       {
-        origPHI.emplace_back(PN);
-      }
-      else if (!(isa<AllocaInst>(&Inst) && Inst.getParent() == &entryBB) && Inst.isUsedOutsideOfBlock(&BB))
-      {
-        origReg.emplace_back(&Inst);
+        if (PN = dyn_cast<PHINode>(&Inst))
+        {
+          origPHI.emplace_back(PN);
+        }
+        else if (!(isa<AllocaInst>(&Inst) && Inst.getParent() == &entryBB) && Inst.isUsedOutsideOfBlock(&BB))
+        {
+          origReg.emplace_back(&Inst);
+        }
       }
     }
-  }
+  
+    for (PHINode *PN : origPHI)
+    {
+      DemotePHIToStack(PN, I);
+    }
+  
+    for (Instruction *Inst : origReg)
+    {
+      DemoteRegToStack(*Inst, false, I);
+    }
+  
+    outs() << "[origPHI]: " << origPHI.size() << "\n";
+    outs() << "[origReg]: " << origReg.size() << "\n";
 
-  for (PHINode *PN : origPHI)
-  {
-    DemotePHIToStack(PN, I);
-  }
-
-  for (Instruction *Inst : origReg)
-  {
-    DemoteRegToStack(*Inst, false, I);
-  }
-
-  outs() << "origPHI: " << origPHI.size() << "\n";
-  outs() << "origReg: " << origReg.size() << "\n";
+  } while (origPHI.size() != 0 || origReg.size() != 0);
 }
+
+
+// bool valueEscapes(Instruction *Inst) {
+//   BasicBlock *BB = Inst->getParent();
+//   for (Value::use_iterator UI = Inst->use_begin(), E = Inst->use_end(); UI != E;
+//        ++UI) {
+//     Instruction *I = cast<Instruction>(*UI);
+//     if (I->getParent() != BB || isa<PHINode>(I)) {
+//       return true;
+//     }
+//   }
+//   return false;
+// }
+// // from: https://bbs.kanxue.com/thread-287258.htm
+// void llvm::fixStack(Function *const F) {
+//   // 存放需要降级的 PHI 节点
+//   // Try to remove phi node and demote reg to stack
+//   std::vector<PHINode *>     TmpPhi;
+//   // 存放需要降级为栈的寄存器变量
+//   std::vector<Instruction *> TmpReg;
+//   // 函数入口块
+//   BasicBlock *               const BbEntry = &*F->begin();
+ 
+//   do {
+//     TmpPhi.clear();
+//     TmpReg.clear();
+ 
+//     // 遍历函数中的所有基本块和指令
+//     for (Function::iterator TmpBBIter = F->begin(); TmpBBIter != F->end();
+//          ++TmpBBIter) {
+ 
+//       for (BasicBlock::iterator TmpInstIter = TmpBBIter->begin();
+//            TmpInstIter != TmpBBIter->end(); ++TmpInstIter) {
+ 
+//         // 如果是 PHI 指令
+//         if (isa<PHINode>(TmpInstIter)) {
+//           PHINode *const Phi = cast<PHINode>(TmpInstIter);
+//           // 加入 PHI 列表
+//           TmpPhi.push_back(Phi);
+//           continue;
+//         }
+ 
+//         // 如果不是入口块中的 alloca 指令，并且该指令逃逸了（跨块使用）
+//         const bool IsAllocaInst = isa<AllocaInst>(TmpInstIter);
+//         const bool IsEntryBB = TmpInstIter->getParent() == BbEntry;
+ 
+//         if (IsAllocaInst && IsEntryBB) {
+//           continue;
+//         }
+ 
+//         const bool IsValueEscapes = valueEscapes(&*TmpInstIter);
+//         const bool IsUsedOutsideOfBlock =
+//             TmpInstIter->isUsedOutsideOfBlock(&*TmpBBIter);
+ 
+// //        outs() << "IsAllocaInst:" << IsAllocaInst << ",IsEntryBB:" << IsEntryBB
+// //               << ",IsValueEscapes:" << IsValueEscapes
+// //               << ",IsUsedOutsideOfBlock:" << IsUsedOutsideOfBlock << "\n\n";
+ 
+//         if (IsValueEscapes || IsUsedOutsideOfBlock) {
+//           // 加入寄存器列表
+//           TmpReg.push_back(&*TmpInstIter);
+//           continue;
+//         }
+//       }
+//     }
+ 
+//     // 将收集到的寄存器变量降级为栈变量
+//     for (unsigned int I = 0; I != TmpReg.size(); ++I) {
+//       Instruction *const Inst = TmpReg.at(I);
+//       DemoteRegToStack(*Inst);
+//     }
+ 
+//     // 将收集到的 PHI 节点降级为栈变量
+//     for (unsigned int I = 0; I != TmpPhi.size(); ++I) {
+//       PHINode *const TmpPHINode = TmpPhi.at(I);
+//       DemotePHIToStack(TmpPHINode);
+//     }
+//     // 循环直到没有更多可降级内容
+//   } while (TmpReg.size() != 0 || TmpPhi.size() != 0);
+// }

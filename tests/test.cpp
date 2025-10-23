@@ -37,7 +37,7 @@ int encrypt(int *arr, int n)
 
     return res;
 }
-__attribute((__annotate__(("nosenc"))))
+
 int test2(int a)
 {
     int b = a + 10;
@@ -66,8 +66,7 @@ int test2(int a)
 }
 
 // __attribute((__annotate__(("fla"))))
-// __attribute((__annotate__(("fla-plus"))))
-__attribute((__annotate__(("nosenc"))))
+__attribute((__annotate__(("fla-plus"))))
 int controlFlowTest(int x)
 {
     int result;
@@ -234,7 +233,6 @@ void print_str(const char* str)
 }
 
 // __attribute((__annotate__(("bcf")))) 
-__attribute((__annotate__(("gvenc")))) 
 __attribute__((always_inline)) inline
 void test_str() {
     const char* a = "Hello1";

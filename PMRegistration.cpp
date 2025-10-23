@@ -7,7 +7,6 @@
 #include "IndirectBranch.h"
 #include "IndirectCall.h"
 #include "Ng1okStringEncryptPass.h"
-#include "GlobalsEncryption.h"
 
 using namespace Ng1ok;
 using namespace llvm;
@@ -49,11 +48,6 @@ llvm::PassPluginLibraryInfo getNg1okPassPluginInfo()
                         if (Name == "senc")
                         {
                             MPM.addPass(Ng1okStringEncryptPass());
-                            return true;
-                        }
-                        if (Name == "gvenc")
-                        {
-                            MPM.addPass(GlobalsEncryption());
                             return true;
                         }
                         return false;

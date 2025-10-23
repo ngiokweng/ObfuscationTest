@@ -12,7 +12,6 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/jason/Desktop/llvm_test/Obfuscation/CryptoUtils.cpp" "CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o" "gcc" "CMakeFiles/libObfuscation.dir/CryptoUtils.cpp.o.d"
   "/home/jason/Desktop/llvm_test/Obfuscation/Flattening.cpp" "CMakeFiles/libObfuscation.dir/Flattening.cpp.o" "gcc" "CMakeFiles/libObfuscation.dir/Flattening.cpp.o.d"
   "/home/jason/Desktop/llvm_test/Obfuscation/FlatteningPlus.cpp" "CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.o" "gcc" "CMakeFiles/libObfuscation.dir/FlatteningPlus.cpp.o.d"
-  "/home/jason/Desktop/llvm_test/Obfuscation/GlobalsEncryption.cpp" "CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.o" "gcc" "CMakeFiles/libObfuscation.dir/GlobalsEncryption.cpp.o.d"
   "/home/jason/Desktop/llvm_test/Obfuscation/IndirectBranch.cpp" "CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.o" "gcc" "CMakeFiles/libObfuscation.dir/IndirectBranch.cpp.o.d"
   "/home/jason/Desktop/llvm_test/Obfuscation/IndirectCall.cpp" "CMakeFiles/libObfuscation.dir/IndirectCall.cpp.o" "gcc" "CMakeFiles/libObfuscation.dir/IndirectCall.cpp.o.d"
   "/home/jason/Desktop/llvm_test/Obfuscation/Ng1okStringEncryptPass.cpp" "CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o" "gcc" "CMakeFiles/libObfuscation.dir/Ng1okStringEncryptPass.cpp.o.d"
