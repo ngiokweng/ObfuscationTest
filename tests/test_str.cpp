@@ -77,18 +77,68 @@ void print_str(const char* str, const char* s)
     printf("[%s]: %s\n", str, s);
 }
 
-__attribute((__annotate__(("senc"))))
+
 void test3(std::string s) {
     LOG(s.c_str());
 }
-__attribute((__annotate__(("senc"))))
-__attribute((__annotate__(("test1234"))))
+
 void test4(const char* s) {
     LOG(s);
 }
 
 void test5(const char* s) {
     LOG(s);
+}
+
+const char* gStr = "i am global string";
+const char* gStr2 = "i am global string2";
+__attribute((__annotate__(("senc")))) 
+void test6() {
+    LOG(gStr);
+    LOG(gStr2);
+    // const char* suBinaries[] = {
+    //     ("/data/local/su"),
+    //     ("/data/local/su"),
+    //     ("/data/local/xbin/su"),
+    //     ("/dev/su")
+    // };
+    // for (const char* path : suBinaries) {
+    //     LOG(path);
+    // }
+    // int arr[] = {1,2,3,4,5};
+    // for (int v : arr) {
+    //     printf("arr val: %d\n", v);
+    // }
+    // const char* emptyArr[] = {"\x00\x00\x00", "\x00"};
+    // for (const char* p : emptyArr) {
+    //     LOG(p);
+    // }
+}
+
+__attribute((__annotate__(("senc")))) 
+void test7() {
+    const char* suBinaries[] = {
+        ("/data/local/su"),
+        ("/data/local/su"),
+        ("/data/local/su"),
+        ("/data/local/su"),
+        ("/data/local/bin/su"),
+        ("/data/local/xbin/su"),
+        ("/sbin/su"),
+        ("/su/bin/su"),
+        ("/system/bin/su"),
+        ("/system/bin/.ext/su"),
+        ("/system/bin/failsafe/su"),
+        ("/system/sd/xbin/su"),
+        ("/system/usr/we-need-root/su"),
+        ("/system/xbin/su"),
+        ("/cache/su"),
+        ("/data/su"),
+        ("/dev/su")
+    };
+    for (const char* path : suBinaries) {
+        LOG(path);
+    }
 }
 
 int main() {
@@ -113,6 +163,10 @@ int main() {
     test3("i am test3");
     test4("i am test4");
     test5("i am test5");
+
+    test6();
+
+    test7();
 
     return 0;
 }
